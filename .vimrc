@@ -1,3 +1,5 @@
+set encoding=UTF-8
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,6 +12,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
+"Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'KeitaNakamura/neodark.vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -35,4 +42,22 @@ set ruler
 set mouse=a
 set cursorline
 set cursorcolumn
+
+let g:neodark#solid_vertsplit = 1 " default: 0
+let g:neodark#use_256color = 1 " default: 0
+let g:neodark#terminal_transparent = 1 " default: 0
+colorscheme neodark
+
+" NERDTrees File highlighting only the glyph/icon
+" test highlight just the glyph (icons) in nerdtree:
+autocmd filetype nerdtree highlight haskell_icon ctermbg=none ctermfg=Red guifg=#ffa500
+autocmd filetype nerdtree highlight html_icon ctermbg=none ctermfg=Red guifg=#ffa500
+autocmd filetype nerdtree highlight go_icon ctermbg=none ctermfg=Red guifg=#ffa500
+
+autocmd filetype nerdtree syn match haskell_icon ## containedin=NERDTreeFlags
+" if you are using another syn highlight for a given line (e.g.
+" NERDTreeHighlightFile) need to give that name in the 'containedin' for this
+" other highlight to work with it
+autocmd filetype nerdtree syn match html_icon ## containedin=NERDTreeFlags,html
+autocmd filetype nerdtree syn match go_icon ## containedin=NERDTreeFlags
 
