@@ -8,5 +8,5 @@ rm -rf ~/Library/caches/Google/* -y
 rm -rf ~/Library/caches/com.apple.Safari.SafeBrowsing/* -y
 rm -rf ~/Library/caches/com.hnc.Discord/* -y
 if [ -d ~/.Trash ]; then
-	cd ~/.Trash | rm -rv ~/.Trash
+	cd ~/.Trash | rm -rv ~/.Trash > /dev/null
 fi
